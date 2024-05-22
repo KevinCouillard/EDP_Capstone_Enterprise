@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css'
 import Search from './components/Search'
+import Homepage from "./components/Homepage";
 import EmployeePage from "./components/EmployeePage";
 import {
   BrowserRouter as Router,
@@ -10,35 +11,17 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const [searchterm, setSearchterm] = useState("")
   return (
     <>
       <Router>
-        <div>
-          <h1>
-            Fortune 500
-          </h1>
-        </div>
-        <div>
-          <h3>
-            Enterprise Directory
-          </h3>
-        </div>
-      
-        <div>
-          <Search searchterm = {searchterm}
-          setSearchterm = {setSearchterm}/>
-          
-        </div>
+        
         
         <Routes>
-          <Route exact path="/" />
-          <Route path="/search" element={<EmployeePage searchterm = {searchterm} />} />
+          <Route exact path="/" element={<Homepage/>} />
+          <Route path="/search" element={<EmployeePage />} />
         </Routes>
 
-        <div>
-          Kevin Couillard and Suhail Hameed
-        </div>
+        
       </Router>
     </>
   )
