@@ -8,11 +8,11 @@ import React, { useState, useEffect } from "react";
 
 
 function Search(props) {
-  const [searchterm, setSearchterm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${import.meta.env.SERVER_URL}/search`, {
+    fetch(`${import.meta.env.SERVER_URL}`, {
         method: "POST",
         body: JSON.stringify({ searchTerm }),
         headers: {
@@ -39,8 +39,8 @@ function Search(props) {
               type="text"
               placeholder="Search"
               className=" mr-sm-2"
-              value = {props.searchterm}
-              onChange = {(e) => props.setSearchterm(e.target.value)}
+              value = {searchTerm}
+              onChange = {(e) => setSearchTerm(e.target.value)}
         
             />
           </Col>
