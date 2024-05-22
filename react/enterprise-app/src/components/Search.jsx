@@ -4,9 +4,32 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import React, { useState, useEffect } from "react";
+
 
 function Search(props) {
-    
+  const [searchterm, setSearchterm] = useState("")
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`${import.meta.env.SERVER_URL}/search`, {
+        method: "POST",
+        body: JSON.stringify({ searchTerm }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            // Handle the response data
+            props.setData(data);
+            console.log(data);
+        })
+        .catch((error) => {
+            // Handle any errors
+            console.error(error);
+        });
+};  
   return (
     <Navbar className="bg-body-tertiary justify-content-between">
       <Form inline>

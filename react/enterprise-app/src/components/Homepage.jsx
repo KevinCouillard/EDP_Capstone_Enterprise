@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import Search from "./Search";
 
 function Homepage() {
-    const [searchterm, setSearchterm] = useState("")
 
     return(
         <>
@@ -19,11 +18,11 @@ function Homepage() {
             </h3>
         </div>
         
-        <div>
+        {/* <div>
             <Search searchterm = {searchterm}
             setSearchterm = {setSearchterm}/>
             
-        </div>
+        </div> */}
         <div>
           Kevin Couillard and Suhail Hameed
         </div>
