@@ -3,6 +3,31 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: grey;
+}
+
+#header {
+  background-color: green;
+  color: #288cff;
+  border: 4mm ridge rgba(211, 220, 50, 0.6);
+}
+
+#card {
+  background-color: blanchedalmond;
+  width: "18rem";
+  align-items: center;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: fit-content;
+  grid-gap: 15px;
+  grid-auto-columns: fit-content;
+  grid-auto-flow: row;
+  /* background-color: "orange";
+  border: "4mm ridge rgba(211, 220, 50, 0.6)";
+  justify-content: "center"; */
 }
 
 .logo {

@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 
 function EmployeeCard(props) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card id="card">
       <Card.Body>
         <Card.Title>{props.data.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
@@ -17,8 +17,8 @@ function EmployeeCard(props) {
           <br />
           Salary: {props.data.salary}
         </Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+        {/* <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link> */}
       </Card.Body>
     </Card>
   );

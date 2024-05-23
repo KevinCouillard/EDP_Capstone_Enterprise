@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Search from "./Search";
 import EmployeeCard from "./EmployeeCard";
 
-function Homepage() {   
+function Homepage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -25,19 +25,20 @@ function Homepage() {
 
   return (
     <>
-      <div>
+      <div id="header">
         <h1>Fortune 500</h1>
-      </div>
-      <div>
         <h3>Enterprise Directory</h3>
-      </div>
-
-      <div>
         <Search setData={setData} />
       </div>
       <div
         className="card-container"
-        style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}
+        id="cards"
+        style={{
+          backgroundColor: "orange",
+          border: "4mm ridge rgba(211, 220, 50, 0.6)",
+          justifyContent: "center",
+          padding: "20px",
+        }}
       >
         {data.map((employee) => (
           <EmployeeCard key={employee.employee_id} data={employee} />

@@ -1,35 +1,34 @@
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import React, { useState, useEffect } from "react";
 
-
 function Search(props) {
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${import.meta.env.SERVER_URL}`, {
-        method: "POST",
-        body: JSON.stringify({ searchTerm }),
-        headers: {
-            "Content-Type": "application/json",
-        },
+      method: "POST",
+      body: JSON.stringify({ searchTerm }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-        .then((response) => response.json())
-        .then((data) => {
-            // Handle the response data
-            props.setData(data);
-            console.log(data);
-        })
-        .catch((error) => {
-            // Handle any errors
-            console.error(error);
-        });
-};  
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data
+        props.setData(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error(error);
+      });
+  };
   return (
     <Navbar className="bg-body-tertiary justify-content-between">
       <Form inline>
@@ -39,12 +38,11 @@ function Search(props) {
               type="text"
               placeholder="Search"
               className=" mr-sm-2"
-              value = {searchTerm}
-              onChange = {(e) => setSearchTerm(e.target.value)}
-        
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </Col>
-          <Col xs="auto">
+          <Col style={{ marginTop: "20px", paddingBottom: "20px" }} xs="auto">
             <Button type="submit">Submit</Button>
           </Col>
         </Row>
@@ -54,9 +52,6 @@ function Search(props) {
 }
 
 export default Search;
-
-
-
 
 // import React, { useState } from 'react';
 
