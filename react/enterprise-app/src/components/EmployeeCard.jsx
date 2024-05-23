@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-function EmployeeCard() {
+function EmployeeCard(props) {
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
