@@ -1,14 +1,21 @@
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
 function EmployeeCard(props) {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Title>{props.data.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          {props.data.phone}
+        </Card.Subtitle>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          Employee Information:
+          <br />
+          Job Role: {props.data.job_role}
+          <br />
+          Work Location: {props.data.work_location}
+          <br />
+          Salary: {props.data.salary}
         </Card.Text>
         <Card.Link href="#">Card Link</Card.Link>
         <Card.Link href="#">Another Link</Card.Link>
