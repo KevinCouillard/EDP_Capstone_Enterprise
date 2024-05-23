@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Search from "./Search";
 import EmployeeCard from "./EmployeeCard";
+import Employee from "./Employee";
+import Button from "react-bootstrap/esm/Button";
 
-function Homepage() {
+function Homepage() {   
+
+  const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
+
+  const setOpen = () => {
+    setIsOpen(true);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +38,9 @@ function Homepage() {
         <h3>Enterprise Directory</h3>
         <Search setData={setData} />
       </div>
+      <Button onClick={setOpen}>
+        Seht
+      </Button>
       <div
         className="card-container"
         id="cards"
@@ -44,6 +55,7 @@ function Homepage() {
           <EmployeeCard key={employee.employee_id} data={employee} />
         ))}
       </div>
+        <Employee  style={ {display: 'block', position: 'initial'} } isOpen={isOpen} setIsOpen={setIsOpen}></Employee>
       <div>Kevin Couillard and Suhail Hameed</div>
     </>
   );
