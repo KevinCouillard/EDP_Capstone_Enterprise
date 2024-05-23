@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Search from "./Search";
 import EmployeeCard from "./EmployeeCard";
 
-function Homepage() {
+function Homepage() {   
   const [data, setData] = useState([]);
 
   useEffect(() => {
