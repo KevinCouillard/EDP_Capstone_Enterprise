@@ -11,7 +11,7 @@ function Search(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${import.meta.env.SERVER_URL}`, {
+    fetch("http://localhost:3000/employees/search", {
       method: "POST",
       body: JSON.stringify({ searchTerm }),
       headers: {
@@ -29,9 +29,15 @@ function Search(props) {
         console.error(error);
       });
   };
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+    console.log(searchTerm);
+  };
+
   return (
-    <Navbar className="bg-body-tertiary justify-content-between">
-      <Form inline>
+    <Navbar id="searchNav">
+      <Form inline onSubmit={handleSubmit}>
         <Row>
           <Col xs="auto">
             <Form.Control
@@ -39,9 +45,11 @@ function Search(props) {
               placeholder="Search"
               className=" mr-sm-2"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleChange}
             />
           </Col>
+        </Row>
+        <Row style={{ justifyContent: "center" }}>
           <Col style={{ marginTop: "20px", paddingBottom: "20px" }} xs="auto">
             <Button type="submit">Submit</Button>
           </Col>

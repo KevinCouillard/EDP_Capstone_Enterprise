@@ -30,6 +30,13 @@
   justify-content: "center"; */
 }
 
+#searchNav {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
