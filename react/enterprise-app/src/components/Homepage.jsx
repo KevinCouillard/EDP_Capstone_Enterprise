@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Search from "./Search";
 import EmployeeCard from "./EmployeeCard";
-import Employee from "./Employee";
+import Employee from "./Modal";
 import Button from "react-bootstrap/esm/Button";
 
-function Homepage() {   
-
-  const [isOpen, setIsOpen] = useState(false);
+function Homepage() {
   const [data, setData] = useState([]);
+  const [employeeId, setEmployeeId] = useState();
 
-  const setOpen = () => {
-    setIsOpen(true);
-  };
+
+  //   const saveEmployeeId = (employee) => {
+  //     setEmployee(employee);
+  //   };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,9 +38,9 @@ function Homepage() {
         <h3>Enterprise Directory</h3>
         <Search setData={setData} />
       </div>
-      <Button onClick={setOpen}>
+      {/* <Button onClick={setOpen}>
         Seht
-      </Button>
+      </Button> */}
       <div
         className="card-container"
         id="cards"
@@ -52,10 +52,14 @@ function Homepage() {
         }}
       >
         {data.map((employee) => (
-          <EmployeeCard key={employee.employee_id} data={employee} />
+          <EmployeeCard
+            setEmployeeId={setEmployeeId}
+            id={employee.employee_id}
+            key={employee.employee_id}
+            data={employee}
+          />
         ))}
       </div>
-        <Employee  style={ {display: 'block', position: 'initial'} } isOpen={isOpen} setIsOpen={setIsOpen}></Employee>
       <div>Kevin Couillard and Suhail Hameed</div>
     </>
   );
