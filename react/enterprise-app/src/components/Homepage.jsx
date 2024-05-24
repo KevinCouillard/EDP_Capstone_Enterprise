@@ -38,9 +38,7 @@ function Homepage() {
         <h3>Enterprise Directory</h3>
         <Search setData={setData} />
       </div>
-      <Button onClick={setOpen}>
-        Seht
-      </Button>
+     
       <div
         className="card-container"
         id="cards"
